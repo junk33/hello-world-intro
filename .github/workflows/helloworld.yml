@@ -25,7 +25,8 @@ jobs:
           java-version: 1.8
       - name: Run tester
         run: |
-          bash ./mvn-tester.sh
+          git clone https://github.com/junk33/hello-world-test.git
+          bash ./hello-world-test/mvn-tester.sh
       # - name: Build with Maven
       #   run: |
       #     git clone https://github.com/junk33/hello-world-test.git
