@@ -3,7 +3,7 @@
 class HelloWorld {
 
     public static void main(String[] args) {
-        System.out.println("Hello, WWWorld!");
+        System.out.println("Hello, WWWWorld!");
     }
 
     public static void printStarPiramid() {
