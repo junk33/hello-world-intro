@@ -23,29 +23,29 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Build with Maven
+      - name: Run tester
         run: |
-          git clone https://github.com/junk33/hello-world-test.git
-          ls -lR
-          mv HelloWorld.java hello-world-test/src/main/java
-          ls -lR
-          cd hello-world-test
-          echo "mvn clean"
-          mvn clean
-          echo "mvn compile"
-          mvn compile
-          echo "mvn test"
-          mvn test 
-          echo "mvn clean"
-          mvn clean
-          echo "mvn compile"
-          mvn compile
-          echo "mvn test"
-          mvn test 
-          mvn clean compile test --batch-mode --fail-at-end
-      - name: See Maven Test Report
-        run: |
-
+          bash ./mvn-tester.sh
+      # - name: Build with Maven
+      #   run: |
+      #     git clone https://github.com/junk33/hello-world-test.git
+      #     ls -lR
+      #     mv HelloWorld.java hello-world-test/src/main/java
+      #     ls -lR
+      #     cd hello-world-test
+      #     echo "mvn clean"
+      #     mvn clean
+      #     echo "mvn compile"
+      #     mvn compile
+      #     echo "mvn test"
+      #     mvn test
+      #     echo "mvn clean"
+      #     mvn clean
+      #     echo "mvn compile"
+      #     mvn compile
+      #     echo "mvn test"
+      #     mvn test
+      #     mvn clean compile test --batch-mode --fail-at-end
       - name: Publish Test Report
         if: ${{ always() }}
         uses: scacap/action-surefire-report@v1
