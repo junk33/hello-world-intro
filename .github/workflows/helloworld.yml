@@ -36,6 +36,12 @@ jobs:
           mvn compile
           echo "mvn test"
           mvn test 
+          echo "mvn clean"
+          mvn clean
+          echo "mvn compile"
+          mvn compile
+          echo "mvn test"
+          mvn test 
           mvn clean compile test --batch-mode --fail-at-end
       - name: See Maven Test Report
         run: |
