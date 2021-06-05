@@ -2,6 +2,7 @@
 
 echo "Running build-with-maven.sh script"
 
+
 rm -rf hello-world-test
 git clone --quiet https://github.com/junk33/hello-world-test.git
 

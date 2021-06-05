@@ -6,9 +6,9 @@ name: Hello World Test
 # events but only for the main branch
 on:
   push:
-    paths:
-      # this workflow will only run if a .java file is pushed.
-      - "**.java"
+    # paths:
+    #   # this workflow will only run if a .java file is pushed.
+    #   - "**.java"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,6 +41,7 @@ jobs:
 
       - name: Build with Maven
         run: |
+          ls -lR
           ./github/workflows/build-with-maven.sh
 
       - name: Upload artifact
