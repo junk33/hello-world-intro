@@ -5,10 +5,10 @@ name: Hello World Test
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
 on:
-  push:
-    # paths:
-    #   # this workflow will only run if a .java file is pushed.
-    #   - "**.java"
+  [push, workflow_dispatch]
+  # paths:
+  #   # this workflow will only run if a .java file is pushed.
+  #   - "**.java"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -41,8 +41,8 @@ jobs:
 
       - name: Build with Maven
         run: |
-          ls -lR
-          ./github/workflows/build-with-maven.sh
+          git clone --quiet https://github.com/junk33/hello-world-test.git
+          ./hello-world-test/build-with-maven.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
