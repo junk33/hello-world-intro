@@ -39,14 +39,14 @@ jobs:
           is_cached: ${{ steps.cache-id.outputs.cache-hit }}
           cache: ${{ runner.temp }}/cache-directory-example
 
-      - name: Build with Maven
-        run: |
-          git clone https://github.com/junk33/hello-world-test.git
-          ls -lR
-          mv HelloWorld.java hello-world-test/src/main/java
-          ls -lR
-          cd hello-world-test
-          mvn clean compile test --quiet --no-transfer-progress --batch-mode --fail-at-end
+      # - name: Build with Maven
+      #   run: |
+      #     git clone https://github.com/junk33/hello-world-test.git
+      #     ls -lR
+      #     mv HelloWorld.java hello-world-test/src/main/java
+      #     ls -lR
+      #     cd hello-world-test
+      #     mvn clean compile test --quiet --no-transfer-progress --batch-mode --fail-at-end
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
