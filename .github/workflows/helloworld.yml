@@ -48,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Compile-Run-Report
-          path: hello-world-test/out
+          path: out
           retention-days: 3
       # - name: Publish Test Report
       #   if: ${{ always() }}
