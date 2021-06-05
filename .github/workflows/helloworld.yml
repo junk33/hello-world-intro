@@ -45,12 +45,13 @@ jobs:
           cp HelloWorld.java hello-world-test/src/main/java
           cd hello-world-test
           mvn clean compile test --quiet --no-transfer-progress --batch-mode --fail-never
+          ls -lR
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: ${{ env.OUTPUT }}
-          path: target/surefire-reports/HelloWorldTest.txt
+          path: hello-world-test/target/surefire-reports/HelloWorldTest.txt
           retention-days: 3
       # - name: Publish Test Report
       #   if: ${{ always() }}
