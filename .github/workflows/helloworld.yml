@@ -45,19 +45,25 @@ jobs:
           cp HelloWorld.java hello-world-test/src/main/java
           cd hello-world-test
           mvn clean compile test --quiet --no-transfer-progress --batch-mode --fail-never
-          ls -lR target/surefire-reports
+          ls -lR
 
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Compile-Run-Report
-      #     path: hello-world-test/target/surefire-reports
-      #     retention-days: 3
-      - name: Publish Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          name: Compile-Run-Report
+          path: hello-world-test/target/surefire-reports/HelloWorldTest.txt
+          retention-days: 3
+      - name: Upload artifact on Fail
+        if: ${{ fail() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: Compile-Run-Report
+          path: hello-world-test/src/main/HelloWorld.java
+      # - name: Publish Test Report
+      #   if: ${{ always() }}
+      #   uses: scacap/action-surefire-report@v1
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
   # analysis:
   #   name: CheckStyle
   #   runs-on: ubuntu-latest
