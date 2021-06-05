@@ -41,24 +41,14 @@ jobs:
 
       - name: Build with Maven
         run: |
-          git clone https://github.com/junk33/hello-world-test.git
-          cp HelloWorld.java hello-world-test/src/main/java
-          cd hello-world-test
-          mvn clean compile test --quiet --no-transfer-progress --batch-mode --fail-never
-          ls -lR
+          ./github/workflows/build-with-maven.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: Compile-Run-Report
-          path: hello-world-test/target/surefire-reports/HelloWorldTest.txt
+          path: hello-world-test/out
           retention-days: 3
-      - name: Upload artifact on Fail
-        if: ${{ fail() }}
-        uses: actions/upload-artifact@v2
-        with:
-          name: Compile-Run-Report
-          path: hello-world-test/src/main/HelloWorld.java
       # - name: Publish Test Report
       #   if: ${{ always() }}
       #   uses: scacap/action-surefire-report@v1

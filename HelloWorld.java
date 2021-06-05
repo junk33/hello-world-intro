@@ -2,8 +2,10 @@
 
 class HelloWorld {
 
+    // w1
     public static void main(String[] args) {
-        System.out.println("Hello, WWWW4orld!")
+        System.out.println("Hello, World!");
+    }
 
     public static void printStarPiramid() {
         System.out.println("    *"); // an extra space was added in the end to make test case failed
