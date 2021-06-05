@@ -42,7 +42,7 @@ jobs:
       - name: Build with Maven
         run: |
           git clone --quiet https://github.com/junk33/hello-world-test.git
-          ./hello-world-test/build-with-maven.sh
+          ./hello-world-test/build-with-maven.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v2
