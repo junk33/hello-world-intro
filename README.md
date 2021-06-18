@@ -2,6 +2,7 @@
 <br />
 
 ## Steps to download and work on the assignment
+
 1. Download the .zip files by clicking on "Download ZIP"
 ![image](https://user-images.githubusercontent.com/54456351/120839210-86ba1e80-c51d-11eb-9dda-f63d612fa81a.png)
 2. Click on "New" button on the top of the screen to create new respository
