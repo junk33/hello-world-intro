@@ -58,8 +58,8 @@ jobs:
       #       ]'
       - name: Generate Warning Annotations
         run: |
-          text="This is a Warning"
-          echo "::warning file=app.js,line=1,col=5::$text"
+          text="This is a Warning from the YML file as Github Action"
+          echo "::warning file=README.md,line=1,col=5::$text"
       - name: add-annotations-github-action
         run: |
           touch fake8.txt
@@ -70,6 +70,6 @@ jobs:
         with:
           check_name: fake8
           linter_output_path: fake8.txt
-          commit_sha: ${{ github.event.pull_request.head.sha }}
+          # commit_sha: ${{ github.event.pull_request.head.sha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
