@@ -45,14 +45,17 @@ jobs:
       #     title: "lint"
       #     input: "./out/annotations.json"
       # https://github.com/agyemanjp/ci-checks-action
-      - name: Annotate Checks
-        uses: agyemanjp/ci-checks-action@2.0.4
-        with:
-          ghToken: ${{ secrets.GITHUB_TOKEN }}
-          checks: '[
-            {
-            "name": "test",
-            "fileName": "./out/annotations.json",
-            "prChangesOnly": false
-            }
-            ]'
+      # - name: Annotate Checks
+      #   uses: agyemanjp/ci-checks-action@2.0.4
+      #   with:
+      #     ghToken: ${{ secrets.GITHUB_TOKEN }}
+      #     checks: '[
+      #       {
+      #       "name": "test",
+      #       "fileName": "./out/annotations.json",
+      #       "prChangesOnly": false
+      #       }
+      #       ]'
+      - name: Simpleton
+        run: |
+          cat ./out/annotations.json
