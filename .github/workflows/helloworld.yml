@@ -38,9 +38,26 @@ jobs:
           retention-days: 3
 
       # https://github.com/yuzutech/annotations-action
-      - name: Annotate
-        uses: yuzutech/annotations-action@v0.1.0
+      # - name: Annotate
+      #   uses: yuzutech/annotations-action@v0.1.0
+      #   with:
+      #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      #     title: "lint"
+      #     input: "./out/annotations.json"
+      # https://github.com/agyemanjp/ci-checks-action
+      - name: Annotate Checks
+        uses: agyemanjp/ci-checks-action@2.0.4
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          title: "lint"
-          input: "./out/annotations.json"
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
+          checks: '[
+            {
+            "name": "lint",
+            "fileName": "./out/annotations.json",
+            "prChangesOnly": true
+            },
+            {
+            "name": "test",
+            "fileName": "./out/annotations.json",
+            "prChangesOnly": false
+            }
+            ]'
