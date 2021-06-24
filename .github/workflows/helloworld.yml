@@ -56,6 +56,10 @@ jobs:
       #       "prChangesOnly": false
       #       }
       #       ]'
+      - name: Generate Warning Annotations
+        run: |
+          text="This is a Warning"
+          echo "::warning file=app.js,line=1,col=5::$text"
       - name: Simpleton
         run: |
           cat ./out/annotations.json
