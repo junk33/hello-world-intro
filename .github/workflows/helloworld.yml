@@ -60,7 +60,7 @@ jobs:
         run: |
           text="This is a Warning from the YML file as Github Action"
           echo "::warning file=README.md,line=1,col=5::$text"
-      - name: add-annotations-github-action
+      - name: fake8
         run: |
           touch fake8.txt
           echo 'README.md:1:3: R100 make a better title' >> fake8.txt
