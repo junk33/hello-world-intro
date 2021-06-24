@@ -51,11 +51,6 @@ jobs:
           ghToken: ${{ secrets.GITHUB_TOKEN }}
           checks: '[
             {
-            "name": "lint",
-            "fileName": "./out/annotations.json",
-            "prChangesOnly": true
-            },
-            {
             "name": "test",
             "fileName": "./out/annotations.json",
             "prChangesOnly": false
