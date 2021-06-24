@@ -36,3 +36,11 @@ jobs:
           name: Compile-Run-Report
           path: out
           retention-days: 3
+
+      # https://github.com/yuzutech/annotations-action
+      - name: Annotate
+        uses: yuzutech/annotations-action@v0.1.0
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          title: "lint"
+          input: "./annotations.json"
