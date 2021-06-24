@@ -20,53 +20,29 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # - name: Set up JDK 1.8
-      #   uses: actions/setup-java@v1
-      #   with:
-      #     java-version: 1.8
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
 
       - name: Build with Maven
         run: |
           git clone --quiet https://github.com/junk33/hello-world-test.git
           ./hello-world-test/build-with-maven.py
 
-      # - name: Upload artifact
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: Compile-Run-Report
-      #     path: out
-      #     retention-days: 3
-
-      # https://github.com/yuzutech/annotations-action
-      # - name: Annotate
-      #   uses: yuzutech/annotations-action@v0.1.0
-      #   with:
-      #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
-      #     input: "./out/annotations.json"
-      # https://github.com/agyemanjp/ci-checks-action
-      # - name: Annotate Checks
-      #   uses: agyemanjp/ci-checks-action@2.0.4
-      #   with:
-      #     ghToken: ${{ secrets.GITHUB_TOKEN }}
-      #     checks: '[
-      #       {
-      #       "name": "test",
-      #       "fileName": "./out/annotations.json",
-      #       "prChangesOnly": false
-      #       }
-      #       ]'
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: Compile-Run-Report
+          path: out
+          retention-days: 3
       - name: Generate Warning Annotations
         run: |
           text="This is a Warning from the YML file as Github Action"
           echo "::warning file=README.md,line=1,col=5::$text"
-      - run: |
-          touch fake8.txt
-          echo 'README.md:1:3: R100 make a better title' >> fake8.txt
-          echo 'README.md:2:1: R200 give a better description' >> fake8.txt
-      - uses: pytorch/add-annotations-github-action@master
-        with:
-          check_name: fake8
-          linter_output_path: fake8.txt
-          commit_sha: ${{ github.event.pull_request.head.sha }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "::error file=README.md,line=15,col=3::Sample-Error Message"
+          echo "::group::A Group"
+          echo "::warning file=README.md,line=1,col=5::$text"
+          echo "::warning file=README.md,line=3,col=5::$text"
+          echo "::warning file=README.md,line=5,col=5::$text"
+          echo "::endgroup::"
