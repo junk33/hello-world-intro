@@ -70,6 +70,6 @@ jobs:
         with:
           check_name: fake8
           linter_output_path: fake8.txt
-          commit_sha: ${{ github.sha }}
+          # commit_sha: ${{ github.sha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
