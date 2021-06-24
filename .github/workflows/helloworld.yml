@@ -42,7 +42,6 @@ jobs:
         uses: yuzutech/annotations-action@v0.1.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          title: "lint"
           input: "./out/annotations.json"
       # https://github.com/agyemanjp/ci-checks-action
       # - name: Annotate Checks
