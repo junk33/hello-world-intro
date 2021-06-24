@@ -38,11 +38,11 @@ jobs:
       #     retention-days: 3
 
       # https://github.com/yuzutech/annotations-action
-      - name: Annotate
-        uses: yuzutech/annotations-action@v0.1.0
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          input: "./out/annotations.json"
+      # - name: Annotate
+      #   uses: yuzutech/annotations-action@v0.1.0
+      #   with:
+      #     repo-token: "${{ secrets.GITHUB_TOKEN }}"
+      #     input: "./out/annotations.json"
       # https://github.com/agyemanjp/ci-checks-action
       # - name: Annotate Checks
       #   uses: agyemanjp/ci-checks-action@2.0.4
